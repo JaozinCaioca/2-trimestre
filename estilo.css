@@ -1,0 +1,432 @@
+Aqui estão os códigos atualizados, com a parte do link de atalho ("Pular para o conteúdo principal") removida.
+
+### `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerAcessível - Acessibilidade Digital</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <!-- Cabeçalho / Navegação -->
+    <header class="header">
+        <div class="logo">VERACESSÍVEL</div>
+        <nav class="nav">
+            <a href="#o-problema">O PROBLEMA</a>
+            <a href="#o-impacto">O IMPACTO</a>
+            <a href="#a-solucao">A SOLUÇÃO</a>
+            <a href="#como-funciona">COMO FUNCIONA</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main id="main-content">
+        <section class="hero-section">
+            <div class="subtitle">ACESSIBILIDADE DIGITAL</div>
+            
+            <h1 class="main-title">
+                A imagem <br>
+                que você <br>
+                <span class="highlight">não viu.</span>
+            </h1>
+
+            <p class="description">
+                Mais de 6,5 milhões de brasileiros com deficiência visual navegam a internet diariamente. 
+                Sem texto alternativo, cada imagem postada é uma porta fechada.
+            </p>
+
+            <div class="cta-group">
+                <a href="#a-solucao" class="btn btn-primary">Ver a solução &rarr;</a>
+                <a href="#o-problema" class="btn btn-secondary">Entender o problema</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Widget/Painel Flutuante de Acessibilidade -->
+    <aside class="accessibility-widget" aria-label="Painel de Acessibilidade">
+        <button id="toggle-acc-btn" class="acc-toggle-btn" aria-label="Abrir opções de acessibilidade">
+            ♿
+        </button>
+
+        <div id="acc-panel" class="acc-panel hidden" role="dialog" aria-labelledby="acc-title">
+            <h2 id="acc-title">Acessibilidade</h2>
+
+            <!-- Controle de Fonte -->
+            <div class="acc-option">
+                <label>Tamanho da fonte</label>
+                <div class="btn-group">
+                    <button id="btn-font-dec" aria-label="Diminuir fonte">A-</button>
+                    <button id="btn-font-inc" aria-label="Aumentar fonte">A+</button>
+                </div>
+            </div>
+
+            <!-- Alto Contraste -->
+            <div class="acc-option">
+                <button id="btn-high-contrast" class="btn-acc">Alto Contraste</button>
+            </div>
+
+            <!-- Modos de Daltonismo -->
+            <div class="acc-option">
+                <label for="color-filter-select">Modo Daltônico</label>
+                <select id="color-filter-select" class="acc-select">
+                    <option value="none">Padrão</option>
+                    <option value="deuteranopia">Deuteranopia (Verde)</option>
+                    <option value="protanopia">Protanopia (Vermelho)</option>
+                    <option value="tritanopia">Tritanopia (Azul)</option>
+                    <option value="grayscale">Escala de Cinza</option>
+                </select>
+            </div>
+
+            <!-- Botão Redefinir -->
+            <div class="acc-option">
+                <button id="btn-reset" class="btn-acc btn-reset">Redefinir padrões</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Filtros SVG para simulação de Daltonismo -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="protanopia">
+                <feColorMatrix type="matrix" values="0.56667,0.43333,0,0,0 0.55833,0.44167,0,0,0 0,0.24167,0.75833,0,0 0,0,0,1,0"/>
+            </filter>
+            <filter id="deuteranopia">
+                <feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/>
+            </filter>
+            <filter id="tritanopia">
+                <feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.43333,0.56667,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Lógica em JavaScript para Acessibilidade -->
+    <script>
+        const body = document.body;
+        const toggleBtn = document.getElementById('toggle-acc-btn');
+        const panel = document.getElementById('acc-panel');
+        
+        let fontSizeMultiplier = 1;
+
+        // Mostrar / Ocultar Painel
+        toggleBtn.addEventListener('click', () => {
+            panel.classList.toggle('hidden');
+        });
+
+        // Alterar tamanho da fonte
+        document.getElementById('btn-font-inc').addEventListener('click', () => {
+            if (fontSizeMultiplier < 1.4) {
+                fontSizeMultiplier += 0.1;
+                body.style.fontSize = `${fontSizeMultiplier * 100}%`;
+            }
+        });
+
+        document.getElementById('btn-font-dec').addEventListener('click', () => {
+            if (fontSizeMultiplier > 0.8) {
+                fontSizeMultiplier -= 0.1;
+                body.style.fontSize = `${fontSizeMultiplier * 100}%`;
+            }
+        });
+
+        // Alternar Alto Contraste
+        document.getElementById('btn-high-contrast').addEventListener('click', () => {
+            body.classList.toggle('high-contrast');
+        });
+
+        // Filtro de Daltonismo
+        document.getElementById('color-filter-select').addEventListener('change', (e) => {
+            body.classList.remove('filter-protanopia', 'filter-deuteranopia', 'filter-tritanopia', 'filter-grayscale');
+            const val = e.target.value;
+            if (val !== 'none') {
+                body.classList.add(`filter-${val}`);
+            }
+        });
+
+        // Redefinir Padrões
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            fontSizeMultiplier = 1;
+            body.style.fontSize = '100%';
+            body.classList.remove('high-contrast', 'filter-protanopia', 'filter-deuteranopia', 'filter-tritanopia', 'filter-grayscale');
+            document.getElementById('color-filter-select').value = 'none';
+        });
+    </script>
+</body>
+</html>
+
+```
+
+---
+
+### `estilo.css`
+
+```css
+/* Resets básicos e tipografia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0d0d;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    color: #e68a00;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.nav a {
+    color: #888888;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: #ffffff;
+}
+
+/* Seção Principal (Hero) */
+.hero-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.subtitle {
+    color: #e68a00;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.subtitle::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 1px;
+    background-color: #e68a00;
+}
+
+.main-title {
+    font-family: Georgia, serif;
+    font-size: 4.5rem;
+    line-height: 1.05;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.main-title .highlight {
+    color: #e68a00;
+    font-style: italic;
+}
+
+.description {
+    color: #aaaaaa;
+    font-size: 1.1rem;
+    max-width: 540px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Botões CTA */
+.cta-group {
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #e68a00;
+    color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: #ff9900;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+.btn-secondary:hover {
+    border-color: #666666;
+}
+
+/* Painel Flutuante de Acessibilidade */
+.accessibility-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.acc-toggle-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e68a00;
+    color: #000;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acc-panel {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: 260px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.acc-panel.hidden {
+    display: none;
+}
+
+.acc-panel h2 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.acc-option {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.acc-option label {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-group button, .btn-acc {
+    background: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+.btn-group button:hover, .btn-acc:hover {
+    background: #333;
+}
+
+.acc-select {
+    background: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-reset {
+    background: #3a1c1c;
+    border-color: #5a2c2c;
+}
+
+.btn-reset:hover {
+    background: #5a2c2c;
+}
+
+/* Estilos de Alto Contraste */
+body.high-contrast {
+    background-color: #000000 !important;
+    background-image: none !important;
+    color: #ffffff !important;
+}
+
+body.high-contrast *,
+body.high-contrast .acc-panel {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+body.high-contrast a,
+body.high-contrast button {
+    outline: 1px solid #ffffff;
+}
+
+/* Filtros SVG de Daltonismo aplicados via CSS */
+body.filter-protanopia {
+    filter: url('#protanopia');
+}
+
+body.filter-deuteranopia {
+    filter: url('#deuteranopia');
+}
+
+body.filter-tritanopia {
+    filter: url('#tritanopia');
+}
+
+body.filter-grayscale {
+    filter: grayscale(100%);
+}
+
+```
