@@ -263,3 +263,325 @@ body.filter-grayscale {
     filter: grayscale(100%);
 }
 
+/* =========================================
+   Seção "O Problema"
+========================================= */
+.problem-section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Coluna da Esquerda */
+.text-column {
+    flex: 1;
+}
+
+.subtitle {
+    color: #e5483a;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.main-heading {
+    font-family: Georgia, serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: normal;
+    color: #111111;
+    margin-bottom: 30px;
+}
+
+.highlight-red {
+    color: #e5483a;
+    font-style: italic;
+}
+
+.paragraph {
+    color: #555555;
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+    line-height: 1.7;
+}
+
+.code-tag {
+    background-color: #eae7df;
+    color: #444444;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* Coluna da Direita (Cards) */
+.cards-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Card 1: Erro */
+.card-error {
+    border: 1.5px solid #e5483a;
+}
+
+.dark-bg {
+    background: linear-gradient(180deg, #2b2b2b 0%, #1a1a1a 100%);
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.image-placeholder-text {
+    color: #e5483a;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Card 2: Sucesso */
+.card-success {
+    border: 1.5px solid #2e9e66;
+}
+
+.photo-bg {
+    height: 220px;
+    overflow: hidden;
+}
+
+.photo-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilos de Legenda dos Cards */
+.card-caption {
+    padding: 16px 20px;
+    background-color: #1c1c1c;
+    color: #cccccc;
+}
+
+.mint-bg {
+    background-color: #eef9f3;
+    color: #333333;
+}
+
+.caption-header {
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.text-red {
+    color: #e5483a;
+}
+
+.text-green {
+    color: #2e9e66;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-red {
+    background-color: #e5483a;
+}
+
+.dot-green {
+    background-color: #2e9e66;
+}
+
+.caption-body {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* =========================================
+   Painel Flutuante de Acessibilidade
+========================================= */
+.accessibility-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.acc-toggle-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e68a00;
+    color: #000000;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acc-panel {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: 260px;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.acc-panel.hidden {
+    display: none;
+}
+
+.acc-panel h2 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #ffffff;
+}
+
+.acc-option {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.acc-option label {
+    font-size: 0.8rem;
+    color: #cccccc;
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-group button, 
+.btn-acc {
+    background: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444444;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+.btn-group button:hover, 
+.btn-acc:hover {
+    background: #333333;
+}
+
+.acc-select {
+    background: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444444;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-reset {
+    background: #3a1c1c;
+    border-color: #5a2c2c;
+}
+
+.btn-reset:hover {
+    background: #5a2c2c;
+}
+
+/* =========================================
+   Estilos de Alto Contraste
+========================================= */
+body.high-contrast {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.high-contrast *,
+body.high-contrast .acc-panel,
+body.high-contrast .card,
+body.high-contrast .card-caption,
+body.high-contrast .header {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+body.high-contrast a,
+body.high-contrast button {
+    outline: 1px solid #ffffff;
+}
+
+/* =========================================
+   Filtros SVG de Daltonismo
+========================================= */
+body.filter-protanopia {
+    filter: url("#protanopia");
+}
+
+body.filter-deuteranopia {
+    filter: url("#deuteranopia");
+}
+
+body.filter-tritanopia {
+    filter: url("#tritanopia");
+}
+
+body.filter-grayscale {
+    filter: grayscale(100%);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav a {
+        margin: 0 8px;
+    }
+}
