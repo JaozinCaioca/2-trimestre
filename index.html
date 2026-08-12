@@ -98,6 +98,147 @@
         </defs>
     </svg>
 
+
+<main id="main-content">
+        <section class="problem-section">
+            <div class="container">
+                
+                <!-- Coluna da Esquerda: Texto Explicativo -->
+                <div class="text-column">
+                    <div class="subtitle">— O PROBLEMA</div>
+                    
+                    <h1 class="main-heading">
+                        Imagens sem <br>
+                        <span class="highlight-red">descrição</span> excluem.
+                    </h1>
+
+                    <p class="paragraph">
+                        Leitores de tela — tecnologia usada por pessoas cegas ou com baixa visão — leem o texto da página em voz alta. Quando uma imagem não tem texto alternativo ( <code class="code-tag">alt</code> ), o leitor diz apenas <strong>"imagem"</strong> ou ignora completamente o conteúdo.
+                    </p>
+
+                    <p class="paragraph">
+                        Em redes sociais, notícias, portais de emprego e e-commerce, isso significa exclusão total de conteúdo visual — que hoje representa a maioria das publicações online.
+                    </p>
+                </div>
+
+                <!-- Coluna da Direita: Cards Comparativos -->
+                <div class="cards-column">
+                    
+                    <!-- Card 1: Sem alt text (Erro) -->
+                    <div class="card card-error">
+                        <div class="card-image-area dark-bg">
+                            <div class="eye-off-icon">
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e5483a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </div>
+                            <span class="image-placeholder-text">"imagem"</span>
+                        </div>
+                        <div class="card-caption">
+                            <div class="caption-header text-red">
+                                <span class="dot dot-red"></span> Sem alt text
+                            </div>
+                            <p class="caption-body">
+                                O que o leitor de tela lê: <em>"imagem"</em> — nenhum contexto, nenhuma informação.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Com alt text (Sucesso) -->
+                    <div class="card card-success">
+                        <div class="card-image-area photo-bg">
+                            <!-- Simulação visual da imagem -->
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Pessoa jovem sorrindo enquanto usa um smartphone ao ar livre em dia ensolarado.">
+                        </div>
+                        <div class="card-caption mint-bg">
+                            <div class="caption-header text-green">
+                                <span class="dot dot-green"></span> Com alt text
+                            </div>
+                            <p class="caption-body italic">
+                                "Pessoa jovem sorrindo enquanto usa um smartphone ao ar livre em dia ensolarado."
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Painel Flutuante de Acessibilidade -->
+    <aside class="accessibility-widget" aria-label="Painel de Acessibilidade">
+        <button id="toggle-acc-btn" class="acc-toggle-btn" aria-label="Abrir opções de acessibilidade">
+            ♿
+        </button>
+
+        <div id="acc-panel" class="acc-panel hidden" role="dialog" aria-labelledby="acc-title">
+            <h2 id="acc-title">Acessibilidade</h2>
+
+            <!-- Controle de Fonte -->
+            <div class="acc-option">
+                <label>Tamanho da fonte</label>
+                <div class="btn-group">
+                    <button id="btn-font-dec" aria-label="Diminuir fonte">A-</button>
+                    <button id="btn-font-inc" aria-label="Aumentar fonte">A+</button>
+                </div>
+            </div>
+
+            <!-- Alto Contraste -->
+            <div class="acc-option">
+                <button id="btn-high-contrast" class="btn-acc">Alto Contraste</button>
+            </div>
+
+            <!-- Modos de Daltonismo -->
+            <div class="acc-option">
+                <label for="color-filter-select">Modo Daltônico</label>
+                <select id="color-filter-select" class="acc-select">
+                    <option value="none">Padrão</option>
+                    <option value="deuteranopia">Deuteranopia (Verde)</option>
+                    <option value="protanopia">Protanopia (Vermelho)</option>
+                    <option value="tritanopia">Tritanopia (Azul)</option>
+                    <option value="grayscale">Escala de Cinza</option>
+                </select>
+            </div>
+
+            <!-- Botão Redefinir -->
+            <div class="acc-option">
+                <button id="btn-reset" class="btn-acc btn-reset">Redefinir padrões</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Filtros SVG para simulação de Daltonismo -->
+    <svg style="display: none;">
+        <defs>
+            <filter id="protanopia">
+                <feColorMatrix type="matrix" values="0.56667,0.43333,0,0,0 0.55833,0.44167,0,0,0 0,0.24167,0.75833,0,0 0,0,0,1,0"/>
+            </filter>
+            <filter id="deuteranopia">
+                <feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/>
+            </filter>
+            <filter id="tritanopia">
+                <feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.43333,0.56667,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/>
+            </filter>
+        </defs>
+    </svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Lógica em JavaScript para Acessibilidade -->
     <script>
         const body = document.body;
@@ -149,7 +290,52 @@
         });
     </script>
 
+<!-- Lógica em JavaScript para Acessibilidade -->
+    <script>
 
+
+        // Abrir/Fechar Painel
+        toggleBtn.addEventListener('click', () => {
+            panel.classList.toggle('hidden');
+        });
+
+        // Controles de Fonte
+        document.getElementById('btn-font-inc').addEventListener('click', () => {
+            if (fontSizeMultiplier < 1.4) {
+                fontSizeMultiplier += 0.1;
+                body.style.fontSize = `${fontSizeMultiplier * 100}%`;
+            }
+        });
+
+        document.getElementById('btn-font-dec').addEventListener('click', () => {
+            if (fontSizeMultiplier > 0.8) {
+                fontSizeMultiplier -= 0.1;
+                body.style.fontSize = `${fontSizeMultiplier * 100}%`;
+            }
+        });
+
+        // Alto Contraste
+        document.getElementById('btn-high-contrast').addEventListener('click', () => {
+            body.classList.toggle('high-contrast');
+        });
+
+        // Filtro de Daltonismo
+        document.getElementById('color-filter-select').addEventListener('change', (e) => {
+            body.classList.remove('filter-protanopia', 'filter-deuteranopia', 'filter-tritanopia', 'filter-grayscale');
+            const val = e.target.value;
+            if (val !== 'none') {
+                body.classList.add(`filter-${val}`);
+            }
+        });
+
+        // Redefinir Padrões
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            fontSizeMultiplier = 1;
+            body.style.fontSize = '100%';
+            body.classList.remove('high-contrast', 'filter-protanopia', 'filter-deuteranopia', 'filter-tritanopia', 'filter-grayscale');
+            document.getElementById('color-filter-select').value = 'none';
+        });
+    </script>
 
     
 </body>
