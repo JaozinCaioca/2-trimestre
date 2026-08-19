@@ -1,130 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VERACESSÍVEL - Acessibilidade Digital</title>
     <link rel="stylesheet" href="./estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Cabeçalho / Navegação -->
-    <header class="header">
+
+    <!-- Cabeçalho Principal -->
+    <header class="top-header">
         <div class="logo">VERACESSÍVEL</div>
         <nav class="nav">
+            <a href="#hero">INÍCIO</a>
             <a href="#o-problema">O PROBLEMA</a>
             <a href="#o-impacto">O IMPACTO</a>
-            <a href="#a-solucao">A SOLUÇÃO</a>
-            <a href="#como-funciona">COMO FUNCIONA</a>
         </nav>
     </header>
 
-    <!-- Conteúdo Principal -->
+    <!-- Conteúdo Principal Empilhado Verticalmente -->
     <main id="main-content">
-        <section class="hero-section">
-            <div class="subtitle">ACESSIBILIDADE DIGITAL</div>
-            
-            <h1 class="main-title">
-                A imagem <br>
-                que você <br>
-                <span class="highlight">não viu.</span>
-            </h1>
-
-            <p class="description">
-                Mais de 6,5 milhões de brasileiros com deficiência visual navegam a internet diariamente. 
-                Sem texto alternativo, cada imagem postada é uma porta fechada.
-            </p>
-
-            <div class="cta-group">
-                <a href="#a-solucao" class="btn btn-primary">Ver a solução &rarr;</a>
-                <a href="#o-problema" class="btn btn-secondary">Entender o problema</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Widget/Painel Flutuante de Acessibilidade -->
-    <aside class="accessibility-widget" aria-label="Painel de Acessibilidade">
-        <button id="toggle-acc-btn" class="acc-toggle-btn" aria-label="Abrir opções de acessibilidade">
-            ♿
-        </button>
-
-        <div id="acc-panel" class="acc-panel hidden" role="dialog" aria-labelledby="acc-title">
-            <h2 id="acc-title">Acessibilidade</h2>
-
-            <!-- Controle de Fonte -->
-            <div class="acc-option">
-                <label>Tamanho da fonte</label>
-                <div class="btn-group">
-                    <button id="btn-font-dec" aria-label="Diminuir fonte">A-</button>
-                    <button id="btn-font-inc" aria-label="Aumentar fonte">A+</button>
+        
+        <!-- Seção 1: Hero -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="subtitle">ACESSIBILIDADE DIGITAL</div>
+                <h1 class="main-title">
+                    A imagem <br>
+                    que você <br>
+                    <span class="highlight">não viu.</span>
+                </h1>
+                <p class="description">
+                    Mais de 6,5 milhões de brasileiros com deficiência visual navegam a internet diariamente. 
+                    Sem texto alternativo, cada imagem postada é uma porta fechada.
+                </p>
+                <div class="cta-group">
+                    <a href="#o-impacto" class="btn btn-primary">Ver a solução &rarr;</a>
+                    <a href="#o-problema" class="btn btn-secondary">Entender o problema</a>
                 </div>
             </div>
+        </section>
 
-            <!-- Alto Contraste -->
-            <div class="acc-option">
-                <button id="btn-high-contrast" class="btn-acc">Alto Contraste</button>
-            </div>
-
-            <!-- Modos de Daltonismo -->
-            <div class="acc-option">
-                <label for="color-filter-select">Modo Daltônico</label>
-                <select id="color-filter-select" class="acc-select">
-                    <option value="none">Padrão</option>
-                    <option value="deuteranopia">Deuteranopia (Verde)</option>
-                    <option value="protanopia">Protanopia (Vermelho)</option>
-                    <option value="tritanopia">Tritanopia (Azul)</option>
-                    <option value="grayscale">Escala de Cinza</option>
-                </select>
-            </div>
-
-            <!-- Botão Redefinir -->
-            <div class="acc-option">
-                <button id="btn-reset" class="btn-acc btn-reset">Redefinir padrões</button>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Filtros SVG para simulação de Daltonismo -->
-    <svg style="display: none;">
-        <defs>
-            <filter id="protanopia">
-                <feColorMatrix type="matrix" values="0.56667,0.43333,0,0,0 0.55833,0.44167,0,0,0 0,0.24167,0.75833,0,0 0,0,0,1,0"/>
-            </filter>
-            <filter id="deuteranopia">
-                <feColorMatrix type="matrix" values="0.625,0.375,0,0,0 0.7,0.3,0,0,0 0,0.3,0.7,0,0 0,0,0,1,0"/>
-            </filter>
-            <filter id="tritanopia">
-                <feColorMatrix type="matrix" values="0.95,0.05,0,0,0 0,0.43333,0.56667,0,0 0,0.475,0.525,0,0 0,0,0,1,0"/>
-            </filter>
-        </defs>
-    </svg>
-
-
-<main id="main-content">
-        <section class="problem-section">
-            <div class="container">
+        <!-- Seção 2: O Problema -->
+        <section id="o-problema" class="problem-section">
+            <div class="container problem-grid">
                 
-                <!-- Coluna da Esquerda: Texto Explicativo -->
                 <div class="text-column">
                     <div class="subtitle">— O PROBLEMA</div>
-                    
-                    <h1 class="main-heading">
+                    <h2 class="main-heading">
                         Imagens sem <br>
                         <span class="highlight-red">descrição</span> excluem.
-                    </h1>
-
+                    </h2>
                     <p class="paragraph">
                         Leitores de tela — tecnologia usada por pessoas cegas ou com baixa visão — leem o texto da página em voz alta. Quando uma imagem não tem texto alternativo ( <code class="code-tag">alt</code> ), o leitor diz apenas <strong>"imagem"</strong> ou ignora completamente o conteúdo.
                     </p>
-
                     <p class="paragraph">
                         Em redes sociais, notícias, portais de emprego e e-commerce, isso significa exclusão total de conteúdo visual — que hoje representa a maioria das publicações online.
                     </p>
                 </div>
 
-                <!-- Coluna da Direita: Cards Comparativos -->
                 <div class="cards-column">
-                    
-                    <!-- Card 1: Sem alt text (Erro) -->
                     <div class="card card-error">
                         <div class="card-image-area dark-bg">
                             <div class="eye-off-icon">
@@ -145,10 +83,8 @@
                         </div>
                     </div>
 
-                    <!-- Card 2: Com alt text (Sucesso) -->
                     <div class="card card-success">
                         <div class="card-image-area photo-bg">
-                            <!-- Simulação visual da imagem -->
                             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Pessoa jovem sorrindo enquanto usa um smartphone ao ar livre em dia ensolarado.">
                         </div>
                         <div class="card-caption mint-bg">
@@ -160,14 +96,48 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
 
             </div>
         </section>
+
+        <!-- Seção 3: O Impacto -->
+        <section id="o-impacto" class="impact-section">
+            <div class="container">
+                <header class="section-header">
+                    <span class="tag">O IMPACTO</span>
+                    <h2 class="impact-title">Os números que a internet<br>prefere ignorar.</h2>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">6,5 mi</span>
+                        <p class="stat-desc">brasileiros com deficiência visual (IBGE)</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">285 mi</span>
+                        <p class="stat-desc">pessoas com deficiência visual no mundo (OMS)</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100 bi</span>
+                        <p class="stat-desc">fotos publicadas por dia só no Instagram</p>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">&lt; 1%</span>
+                        <p class="stat-desc">dessas fotos tem texto alternativo útil</p>
+                    </div>
+                </div>
+
+                <blockquote class="quote-container">
+                    <p class="quote-text">"Quando navego por redes sociais, metade do conteúdo para mim é silêncio. Não é ausência de imagens — é exclusão deliberada."</p>
+                    <cite class="quote-author">— Relato de usuária de leitor de tela, pesquisa de acessibilidade digital, 2024</cite>
+                </blockquote>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Painel Flutuante de Acessibilidade -->
+    <!-- Widget Flutuante de Acessibilidade (Apenas 1 instância) -->
     <aside class="accessibility-widget" aria-label="Painel de Acessibilidade">
         <button id="toggle-acc-btn" class="acc-toggle-btn" aria-label="Abrir opções de acessibilidade">
             ♿
@@ -176,7 +146,6 @@
         <div id="acc-panel" class="acc-panel hidden" role="dialog" aria-labelledby="acc-title">
             <h2 id="acc-title">Acessibilidade</h2>
 
-            <!-- Controle de Fonte -->
             <div class="acc-option">
                 <label>Tamanho da fonte</label>
                 <div class="btn-group">
@@ -185,12 +154,10 @@
                 </div>
             </div>
 
-            <!-- Alto Contraste -->
             <div class="acc-option">
                 <button id="btn-high-contrast" class="btn-acc">Alto Contraste</button>
             </div>
 
-            <!-- Modos de Daltonismo -->
             <div class="acc-option">
                 <label for="color-filter-select">Modo Daltônico</label>
                 <select id="color-filter-select" class="acc-select">
@@ -202,7 +169,6 @@
                 </select>
             </div>
 
-            <!-- Botão Redefinir -->
             <div class="acc-option">
                 <button id="btn-reset" class="btn-acc btn-reset">Redefinir padrões</button>
             </div>
@@ -224,71 +190,17 @@
         </defs>
     </svg>
 
-<main class="container">
-    <header class="header">
-      <span class="tag">O IMPACTO</span>
-      <h1 class="title">Os números que a internet<br>prefere ignorar.</h1>
-    </header>
-
-    <section class="stats-grid">
-      <div class="stat-card">
-        <span class="stat-number">6,5 mi</span>
-        <p class="stat-desc">brasileiros com deficiência visual (IBGE)</p>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">285 mi</span>
-        <p class="stat-desc">pessoas com deficiência visual no mundo (OMS)</p>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">100 bi</span>
-        <p class="stat-desc">fotos publicadas por dia só no Instagram</p>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">&lt; 1%</span>
-        <p class="stat-desc">dessas fotos tem texto alternativo útil</p>
-      </div>
-    </section>
-
-    <blockquote class="quote-container">
-      <p class="quote-text">"Quando navego por redes sociais, metade do conteúdo para mim é silêncio. Não é ausência de imagens — é exclusão deliberada."</p>
-      <cite class="quote-author">— Relato de usuária de leitor de tela, pesquisa de acessibilidade digital, 2024</cite>
-    </blockquote>
-  </main>
-
-  <button class="accessibility-btn" aria-label="Menu de Acessibilidade">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 7h-5v12h-2v-6h-2v6H9V9H4V7h16v2z"/>
-    </svg>
-    <span class="badge">?</span>
-  </button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Lógica em JavaScript para Acessibilidade -->
+    <!-- Script único para Acessibilidade -->
     <script>
         const body = document.body;
         const toggleBtn = document.getElementById('toggle-acc-btn');
         const panel = document.getElementById('acc-panel');
-        
         let fontSizeMultiplier = 1;
 
-        // Mostrar / Ocultar Painel
         toggleBtn.addEventListener('click', () => {
             panel.classList.toggle('hidden');
         });
 
-        // Alterar tamanho da fonte
         document.getElementById('btn-font-inc').addEventListener('click', () => {
             if (fontSizeMultiplier < 1.4) {
                 fontSizeMultiplier += 0.1;
@@ -303,12 +215,10 @@
             }
         });
 
-        // Alternar Alto Contraste
         document.getElementById('btn-high-contrast').addEventListener('click', () => {
             body.classList.toggle('high-contrast');
         });
 
-        // Filtro de Daltonismo
         document.getElementById('color-filter-select').addEventListener('change', (e) => {
             body.classList.remove('filter-protanopia', 'filter-deuteranopia', 'filter-tritanopia', 'filter-grayscale');
             const val = e.target.value;
@@ -317,7 +227,6 @@
             }
         });
 
-        // Redefinir Padrões
         document.getElementById('btn-reset').addEventListener('click', () => {
             fontSizeMultiplier = 1;
             body.style.fontSize = '100%';
@@ -325,54 +234,5 @@
             document.getElementById('color-filter-select').value = 'none';
         });
     </script>
-
-<!-- Lógica em JavaScript para Acessibilidade -->
-    <script>
-
-
-        // Abrir/Fechar Painel
-        toggleBtn.addEventListener('click', () => {
-            panel.classList.toggle('hidden');
-        });
-
-        // Controles de Fonte
-        document.getElementById('btn-font-inc').addEventListener('click', () => {
-            if (fontSizeMultiplier < 1.4) {
-                fontSizeMultiplier += 0.1;
-                body.style.fontSize = `${fontSizeMultiplier * 100}%`;
-            }
-        });
-
-        document.getElementById('btn-font-dec').addEventListener('click', () => {
-            if (fontSizeMultiplier > 0.8) {
-                fontSizeMultiplier -= 0.1;
-                body.style.fontSize = `${fontSizeMultiplier * 100}%`;
-            }
-        });
-
-        // Alto Contraste
-        document.getElementById('btn-high-contrast').addEventListener('click', () => {
-            body.classList.toggle('high-contrast');
-        });
-
-        // Filtro de Daltonismo
-        document.getElementById('color-filter-select').addEventListener('change', (e) => {
-            body.classList.remove('filter-protanopia', 'filter-deuteranopia', 'filter-tritanopia', 'filter-grayscale');
-            const val = e.target.value;
-            if (val !== 'none') {
-                body.classList.add(`filter-${val}`);
-            }
-        });
-
-        // Redefinir Padrões
-        document.getElementById('btn-reset').addEventListener('click', () => {
-            fontSizeMultiplier = 1;
-            body.style.fontSize = '100%';
-            body.classList.remove('high-contrast', 'filter-protanopia', 'filter-deuteranopia', 'filter-tritanopia', 'filter-grayscale');
-            document.getElementById('color-filter-select').value = 'none';
-        });
-    </script>
-
-    
 </body>
 </html>
